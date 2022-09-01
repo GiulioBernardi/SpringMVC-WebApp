@@ -3,6 +3,8 @@ package br.com.bright.chefbot.model;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -16,9 +18,11 @@ public class Usuario {
     private long id;
 
     @Column(name = "nm_usuario", nullable = false, length = 55)
+    @NotBlank(message = "O nome não pode ser vazio")
     private String nome;
 
     @Column(name = "ds_email", nullable = false, length = 40)
+    @Email(message = "Email inválido")
     private String email;
 
     @Column(name = "ds_senha", nullable = false)
