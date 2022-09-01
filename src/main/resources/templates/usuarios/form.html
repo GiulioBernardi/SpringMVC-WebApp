@@ -17,9 +17,10 @@
     <form action="#" th:action="@{/usuarios/salvar}" th:object="${usuario}" method="POST">
         <input type="hidden" id="id" th:field="*{id}">
         <input type="text" th:field="*{nome}" placeholder="Nome" class="form-control mb-4 col-4">
+        <span th:if="${#fields.hasErrors('nome')}" th:errors="{nome}" class="text-danger"></span>
         <input type="email" th:field="*{email}" placeholder="Email" class="form-control mb-4 col-4">
         <input type="password" th:field="*{senha}" placeholder="Senha" class="form-control mb-4 col-4">
-        <input type="text" th:field="*{uf}" placeholder="Estado(UF)" class="form-control mb-4 col-4">
+        <input type="text " th:field="*{uf}" placeholder="Estado(UF)" class="form-control mb-4 col-4">
 
         <button type="submit" class="btn btn-info col-2">Salvar</button>
     </form>
