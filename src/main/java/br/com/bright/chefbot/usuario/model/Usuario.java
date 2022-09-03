@@ -1,10 +1,14 @@
-package br.com.bright.chefbot.model;
+package br.com.bright.chefbot.usuario.model;
 
+import br.com.bright.chefbot.ingrediente.model.Ingrediente;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -26,10 +30,15 @@ public class Usuario {
     private String email;
 
     @Column(name = "ds_senha", nullable = false)
+    @NotBlank
     private String senha;
 
     @Column(name = "ds_uf", length = 19)
+    @NotNull(message = "O email não pode estar vazio")
     private String uf;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
+    private List<Ingrediente> ingredientes;
 
     @Deprecated
     public Usuario() {
@@ -40,6 +49,10 @@ public class Usuario {
         this.email = email;
         this.senha = senha;
         this.uf = uf;
+    }
+
+    public Usuario(String s) {
+
     }
 
     public long getId() {
@@ -80,5 +93,13 @@ public class Usuario {
 
     public void setUf(String uf) {
         this.uf = uf;
+    }
+
+    public List<Ingrediente> getIngredientes() {
+        return ingredientes;
+    }
+
+    public void setIngredientes(List<Ingrediente> ingredientes) {
+        this.ingredientes = ingredientes;
     }
 }

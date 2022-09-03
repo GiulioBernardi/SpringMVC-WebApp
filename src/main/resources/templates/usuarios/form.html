@@ -8,6 +8,10 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
           crossorigin="anonymous">
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+
 </head>
 <body>
 <div class="container my-2">
@@ -20,8 +24,162 @@
         <input type="text" th:field="*{nome}" placeholder="Nome" class="form-control mb-4 col-4">
         <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
         <input type="email" th:field="*{email}" placeholder="Email" class="form-control mb-4 col-4">
+        <span th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}" class="text-danger"></span>
         <input type="password" th:field="*{senha}" placeholder="Senha" class="form-control mb-4 col-4">
-        <input type="text " th:field="*{uf}" placeholder="Estado(UF)" class="form-control mb-4 col-4">
+        <span th:if="${#fields.hasErrors('uf')}" th:errors="*{uf}" class="text-danger"></span>
+        <input type="text" th:field="*{uf}" placeholder="Estado(UF)" class="form-control mb-4 col-4">
+        <select th:field="*{ingredientes}" class="form-control mb-4 col-4">
+            <option th:each="ingrediente: ${ingredientes}"
+                    th:value="${ingrediente.id}" th:text="${ingrediente.nome} + ' (' + ${ingrediente.tipo} + ')'"></option>
+        </select>
+
+
+
+
+
+
+
+
+
+
+        <div class="table-responsive">
+            <h3>Ingredientes</h3>
+            <span th:if="${#fields.hasErrors('ingredientes')}" th:errors="*{ingredientes}"
+                  class="text-danger"></span>
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col"><button type="submit" name="addTelefone"
+                                            class="btn btn-outline-light">
+                        <i class="fas fa-plus-circle"></i>
+                    </button></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="telefone,telefoneStat : *{telefones}">
+                    <th scope="row" th:text="${telefoneStat.count}"><input
+                            type="hidden"
+                            th:field="*{telefones[__${telefoneStat.index}__].id}" /></th>
+                    <td><input type="text"
+                               th:field="*{telefones[__${telefoneStat.index}__].numero}" />
+                    </td>
+                    <td>
+                        <select form="editarForm"
+                                id="tipo-id"
+                                name="tipo-id"
+                                th:field="*{telefones[__${telefoneStat.index}__].tipo}">
+                            <option th:each="tipoTelefone : ${tiposTelefone}"
+                                    th:value="${tipoTelefone.id}"
+                                    th:text="${tipoTelefone.nome}">
+                            </option>
+                        </select>
+                    </td>
+                    <td>
+                        <button type="submit" name="removeTelefone"
+                                th:value="${telefoneStat.index}" class="btn btn-danger">
+                            <i class="fas fa-minus-square"></i>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <button type="submit" class="btn btn-info col-2">Salvar</button>
     </form>

@@ -1,6 +1,6 @@
-package br.com.bright.chefbot.repository;
+package br.com.bright.chefbot.usuario.repository;
 
-import br.com.bright.chefbot.model.Usuario;
+import br.com.bright.chefbot.usuario.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
