@@ -1,10 +1,11 @@
-package br.com.bright.chefbot.model;
+package br.com.bright.chefbot.usuario.model;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -26,10 +27,12 @@ public class Usuario {
     private String email;
 
     @Column(name = "ds_senha", nullable = false)
+    @NotBlank
     private String senha;
 
     @Column(name = "ds_uf", length = 19)
     private String uf;
+
 
     @Deprecated
     public Usuario() {
@@ -40,6 +43,10 @@ public class Usuario {
         this.email = email;
         this.senha = senha;
         this.uf = uf;
+    }
+
+    public Usuario(String s) {
+
     }
 
     public long getId() {
@@ -81,4 +88,5 @@ public class Usuario {
     public void setUf(String uf) {
         this.uf = uf;
     }
+
 }

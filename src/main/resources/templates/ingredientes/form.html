@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Gestão de Ingredientes</title>
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+
+</head>
+<body>
+<div class="container my-2">
+    <h1>Sistema de Gestão de Ingredientes</h1>
+    <hr>
+    <h2>Ingrediente</h2>
+    <form action="#" th:action="@{/ingrediente/salvar}" th:object="${ingrediente}" method="POST">
+        <input type="hidden" id="id" th:field="*{id}">
+        <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="text-danger"></span>
+        <input type="text" th:field="*{nome}" placeholder="Nome" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{quandidadeKg}" placeholder="Quantidade em Kg" class="form-control mb-4 col-4">
+        <label>Tipo</label>
+        <select th:placeholder="tipo"  class="form-control mb-4 col-4">
+            <option></option>
+            <option>Fruta/Vegetal/Legume</option>
+            <option>Grãos</option>
+            <option>Carne/Frango/Peixe</option>
+            <option>Pães</option>
+            <option>Líquido</option>
+            <option>Tempero</option>
+            <option>Doce</option>
+        </select>
+        <input type="text" th:field="*{marca}" placeholder="Marca" class="form-control mb-4 col-4">
+        <button type="submit" class="btn btn-info col-2">Salvar</button>
+    </form>
+    <hr>
+    <a th:href="@{/templates/ingredientes}">Retornar para a lista de ingredientes</a>
+</div>
+</body>
+</html>

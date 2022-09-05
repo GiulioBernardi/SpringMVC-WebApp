@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Gestão de Ingredientes</title>
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container my-2">
+    <a th:href="@{/ingrediente/novo}" class="btn btn-primary btn-sm mb-3">Incluir Ingrediente</a>
+    <h1>Ingredientes</h1>
+    <table border="1" class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Quantidade em Kg</th>
+            <th>Tipo</th>
+            <th>Marca</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="ingrediente : ${listaIngredientes}">
+            <td th:text="${ingrediente.nome}"></td>
+            <td th:text="${ingrediente.quandidadeKg}"></td>
+            <td th:text="${ingrediente.tipo}"></td>
+            <td th:text="${ingrediente.marca}"></td>
+            <td>
+                <a th:href="@{/ingrediente/{id}(id=${ingrediente.id})}" class="btn btn-primary">Alterar</a>
+                <a th:href="@{/ingrediente/excluir/{id}(id=${ingrediente.id})}" class="btn btn-danger">Excluir</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
