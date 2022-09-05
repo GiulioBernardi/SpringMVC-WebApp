@@ -24,21 +24,21 @@
         <input type="text" th:field="*{nome}" placeholder="Nome" class="form-control mb-4 col-4">
         <input type="text" th:field="*{quandidadeKg}" placeholder="Quantidade em Kg" class="form-control mb-4 col-4">
         <label>Tipo</label>
-        <select th:placeholder="tipo"  class="form-control mb-4 col-4">
-            <option></option>
-            <option>Fruta/Vegetal/Legume</option>
-            <option>Grãos</option>
-            <option>Carne/Frango/Peixe</option>
-            <option>Pães</option>
-            <option>Líquido</option>
-            <option>Tempero</option>
-            <option>Doce</option>
+        <select  th:placeholder="tipo" th:field="*{tipo}" class="form-control mb-4 col-4">
+            <option  value=""></option>
+            <option value="Fruta/Vegetal/Legume">Fruta/Vegetal/Legume</option>
+            <option value="Grãos">Grãos</option>
+            <option value="Carne/Frango/Peixe">Carne/Frango/Peixe</option>
+            <option value="Pães">Pães</option>
+            <option value="Líquido">Líquido</option>
+            <option value="Tempero">Tempero</option>
+            <option value="Doce">Doce</option>
         </select>
         <input type="text" th:field="*{marca}" placeholder="Marca" class="form-control mb-4 col-4">
         <button type="submit" class="btn btn-info col-2">Salvar</button>
     </form>
     <hr>
-    <a th:href="@{/templates/ingredientes}">Retornar para a lista de ingredientes</a>
+    <a th:href="@{/ingrediente/listar}">Retornar para a lista de ingredientes</a>
 </div>
 </body>
 </html>
