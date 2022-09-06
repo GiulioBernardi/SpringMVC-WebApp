@@ -5,10 +5,17 @@ CRUD de usuário com Spring mvc para fazer deploy na Azure Webapp
 
 Abra o Eclipse e selecione 'importar projeto' > selecione Git e copie a Url desse repositório.
 
-Abra o arquivo ```application.properties``` e altere as linhas 2 e 3 (username e password)
+1 - Abra o arquivo ```application.properties``` e altere as linhas 2 e 3 (username e password)
 <p align="center">
   <img width="50%" src="https://user-images.githubusercontent.com/54187661/188524539-7005ca1c-2eaa-4cdc-bcec-4fbbde9dbbc4.png" />
 </p>
+
+ 2 - Abra o arquivo ```pom.xml``` <br>Altere a versão do java ```<java.version>17</java.version>``` <br>
+para: ```<java.version>11</java.version>```
+<p align="center">
+  <img width="50%" src="https://user-images.githubusercontent.com/54187661/188727843-b55d72fe-aeb8-4954-b2f0-c270ca0b4ee2.png" />
+</p>
+
 
 Faça o deploy da aplicação usando Azure Web App utilizando o plugin da Azure no Eclipse
 
