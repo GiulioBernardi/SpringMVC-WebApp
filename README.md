@@ -1,5 +1,5 @@
 # SpringMVC-WebApp
-CRUD de usuário com Spring mvc para fazer deploy na Azure Webapp
+CRUD de ingrediente com Spring mvc para fazer deploy na Azure Webapp
 
 ## Como rodar o projeto
 
