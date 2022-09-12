@@ -1,5 +1,6 @@
 # SpringMVC-WebApp
 CRUD de ingrediente com Spring mvc para fazer deploy na Azure Webapp
+Passo a passo do deploy na Azure WebApp: https://youtu.be/zkQUYw13-r4
 
 ## Como rodar o projeto
 
